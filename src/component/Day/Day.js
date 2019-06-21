@@ -2,11 +2,11 @@ import React from 'react';
 import { Paper } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import Hour from './Hour';
 
 
 export default class Day extends React.Component{
+
     render(){
         return(
             <div>
@@ -16,9 +16,10 @@ export default class Day extends React.Component{
                     </Typography>
                     <List component="div" className="hoursList">
                         {this.props.hours.map(hour=>
-                          <ListItem button className="timeButton">
-                              <ListItemText primary={`${hour}`}/>
-                          </ListItem>
+                          <Hour
+                            time = {hour}
+                            date = {this.props.date}
+                          />
                         )}
                     </List>
                 </Paper>
@@ -27,3 +28,4 @@ export default class Day extends React.Component{
     }
 }
 
+// onClick={throwShade(this.props.date + hour)

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DateFnsUtils from "@date-io/date-fns";
-import * as itineraryActions from '../../../src/action/itinerary-actions'
+import * as itineraryActions from '../../../src/action/itinerary-actions';
 // import DateFnsUtils from "date-fns";
 
 import TextField from '@material-ui/core/TextField';
