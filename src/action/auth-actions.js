@@ -1,4 +1,6 @@
 import superagent from 'superagent';
+import checkLocalToken from '../Functions/CheckSessionToken';
+import setLocalToken from '../Functions/SetSessionToken';
 
 export const set = token => ({
   type: 'TOKEN_SET',
@@ -18,7 +20,8 @@ export const signupRequest = user => store => {
   return superagent.post(`${API_URL}${SIGNUP_ROUTE}`)
     .send(user)
     .then(response => {
-      return store.dispatch(set(response.text));
+      //return store.dispatch(set(response.text));
+      setLocalToken(response.text);
     })
     .catch(console.log);
 };

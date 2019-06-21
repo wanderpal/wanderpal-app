@@ -13,17 +13,22 @@ class Dashboard extends React.Component {
   name = () => {
     return this.props.token ? this.props.token[1].name.split(' ')[0] : 'friend';
   };
-  //sessionstotrage work
-  checkLocalToken = () =>{
-    let localToken = sessionStorage.getItem('');
-  }
+  //session storage work
 
-  setLocalToken = () =>{
+  checkLocalToken=()=>{
+    let localToken = sessionStorage.getItem('localToken');
+    return localToken ? localToken : false;
+  };
 
-  }
+
+
+  setLocalToken = (token) =>{
+  return sessionStorage.setItem('localToken', `${token}`);
+  };
 
   componentWillMount() {
-    if (!this.props.token) {
+    let localToken = this.checkLocalToken();
+    if (!this.props.token && !localToken) {
       return (
         <div>
           <Redirect to='/'/>

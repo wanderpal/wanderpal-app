@@ -10,7 +10,7 @@ export class App extends React.Component {
     return (
       <main>
         <BrowserRouter>
-          {/*<Route path='*' component={AuthRedirect}/>*/}
+          <Route path='*' component={AuthRedirect}/>
           <Route exact path='/' component={Landing}/>
           {/*<Route exact path='/login' component={Landing}/>*/}
           {/*<Route exact path="/signup" component={Landing}/>*/}
