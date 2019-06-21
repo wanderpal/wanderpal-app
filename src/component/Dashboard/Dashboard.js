@@ -13,6 +13,14 @@ class Dashboard extends React.Component {
   name = () => {
     return this.props.token ? this.props.token[1].name.split(' ')[0] : 'friend';
   };
+  //sessionstotrage work
+  checkLocalToken = () =>{
+    let localToken = sessionStorage.getItem('');
+  }
+
+  setLocalToken = () =>{
+
+  }
 
   componentWillMount() {
     if (!this.props.token) {
@@ -22,6 +30,7 @@ class Dashboard extends React.Component {
         </div>
       )
     }
+
   }
 
   render() {
