@@ -8,27 +8,16 @@ import ItineraryCarousel from '../ItineraryCarousel/ItineraryCarousel';
 import ItineraryForm from '../ItineraryForm/ItineraryForm';
 import Footer from '../Footer/Footer';
 import { Typography, Container } from '@material-ui/core';
+import checkLocalToken from '../../Functions/CheckSessionToken';
 
 class Dashboard extends React.Component {
   name = () => {
     return this.props.token ? this.props.token[1].name.split(' ')[0] : 'friend';
   };
-  //session storage work
-
-  checkLocalToken=()=>{
-    let localToken = sessionStorage.getItem('localToken');
-    return localToken ? localToken : false;
-  };
-
-
-
-  setLocalToken = (token) =>{
-  return sessionStorage.setItem('localToken', `${token}`);
-  };
 
   componentWillMount() {
-    let localToken = this.checkLocalToken();
-    if (!this.props.token && !localToken) {
+    let localToken = checkLocalToken();
+    if (!localToken) {
       return (
         <div>
           <Redirect to='/'/>
@@ -39,14 +28,12 @@ class Dashboard extends React.Component {
   }
 
   render() {
-
-
     return (
       <div>
-        { this.props.token ? undefined : <Redirect to='/'/> }
+        {/*{ this.props.token ? undefined : <Redirect to='/'/> }*/}
         <Navigation class='dashboard-nav' position='static'/>
         <Container id='dashboard' maxWidth='lg'>
-            <div><ItineraryForm/></div>
+            <div><ItineraryForm userId={this.props.token[1]._id}/></div>
           <Typography variant='h4' mb={2}>
             Welcome back, {this.name()}!
           </Typography>
@@ -69,7 +56,7 @@ class Dashboard extends React.Component {
 const mapStateToProps = state => {
   return{
     token: state.token,
-    currentUser: state.currentUser
+    itineraries: state.itineraries
   }
 };
 // const mapDispatchToProps = dispatch => {
