@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.scss';
+import Divider from '@material-ui/core/Divider';
 
 import { Typography, Container } from '@material-ui/core';
 
@@ -11,12 +12,10 @@ export default class About extends React.Component {
           About
         </Typography>
         <Typography variant='body1'>
-          Lorem ipsum dolor sit amet, qui essent mollis expetenda in, eum id mutat tantas. Ius stet vitae luptatum et, ullum impetus bonorum nam
-          eu. Nostro putant nam at. Ad aeque aliquid accusam duo, magna mazim constituto mei at. Nam utroque inimicus ad, sea vidit inimicus et.            Sit at munere fastidii, soleat possit legendos sed an.
+          Welcome to the wonderful WanderPal application! We are here to make your group travel experiences more enjoyable by taking some of the stress out of keeping up with your busy schedule. Whether you are travelling as a squad of 3 , or a large group, with WanderPal you can coordinate your travel and events with everyone in a place where it is accessible.
+            <Divider variant="middle" id="divide"/>
+          We on the the WanderPal team believe in working hard and playing harder.  That's why we want your time away from work to be as stress free as as possible. Go and get your wander on!
 
-          Decore noster sea et, sit omnis petentium et. At sed quis eleifend voluptaria, per graecis conceptam delicatissimi eu. Eos justo
-          lobortis neglegentur an, ius ut duis elitr. Ad dolore quaeque detraxit nec, tempor everti per an, vis dicit laudem luptatum ut. Affert
-          mandamus quaerendum te mei, nec tollit eloquentiam ad.
         </Typography>
 
       </Container>
